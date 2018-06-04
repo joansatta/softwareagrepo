@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<businessProcessDiagram xmlns="http://www.webmethods.com/bpm/2006/"
+  Id="deb9535f-5869-46d4-b06d-c2e5fb5bf570" bpmnStyle="false" build="1"
+  canvasPool="1" creator="xa52569" description="Version 3 ARIS"
+  failProcessOnStepFailure="false" focalRole="Focal role"
+  name="WFHipotecarios_AnalizarSeguroDeVida"
+  packageName="WFHipotecarios_procesos" processCategory=""
+  rnSync="false" runtimeVersion="1" transitionLabelPref="expression"
+  unSynchJoinDeadPath="true" version="9.8.0">
+  <kpiDimensions/>
+  <systemKPIs>
+    <systemKPI Id="" description="" name="Volume" unitOfMeasure=""/>
+    <systemKPI Id="" description="" name="Cycle Time" unitOfMeasure=""/>
+    <systemKPI Id="" description="" name="Error Count" unitOfMeasure=""/>
+  </systemKPIs>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="ProcessData" name="{ProcessNamespace}ProcessData" type="{pub.prt}ProcessData"/>
+  <logicalDataItem Id="" description="" dimension="0" label="aprobado"
+    name="{ProcessNamespace}aprobado" type="{http://webmethods.com/bpm/ISType/2006}string"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="intervencion" name="{ProcessNamespace}intervencion" type="{http://webmethods.com/bpm/ISType/2006}string"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="analizarSeguroDeVidaPub"
+    name="{ProcessNamespace}analizarSeguroDeVidaPub" type="{WFHipotecarios_Implementacion.procesos.prestamoHipotecario.analizarSeguroDeVida.documentos}analizarSeguroDeVidaPub"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="datosGenericos" name="{ProcessNamespace}datosGenericos" type="{bbvaInboxGenerico.docs}datosGenericos"/>
+  <logicalDataItem Id="" description="" dimension="0" label="prestamo"
+    name="{ProcessNamespace}prestamo" type="{WFHipotecarios_Implementacion.procesos.documentos}prestamo"/>
+  <logicalDataItem Id="" description="" dimension="0" label="seguro"
+    name="{ProcessNamespace}seguro" type="{WFHipotecarios_Implementacion.procesos.documentos}seguro"/>
+  <timeout calendarAlias="" calendarTime="0:0:0"
+    dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+    dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+    dynamicFieldName="" isCalendarTimeout="false" isStaticTimeout="true"
+    isXPathTimeout="false" pipelineCalendarAlias=""
+    pipelineCalendarDays="" pipelineCalendarHours=""
+    pipelineCalendarMinutes="" timeoutStyle="RELATIVE"
+    timeoutType="processTimeout" timeoutValue="0" xpathTimeoutValue=""/>
+  <pool Id="53724189-3fbc-4e2a-bb38-2e9d631a916a" blue="128"
+    containerType="BPMN_SUBPROCESS" description="Aris V7"
+    external="false" externalizeConditions="false" green="128"
+    isCollapsed="false" isCompensating="false" isTestAfter="false"
+    label="Analizar declaración de seguro" labelBlue="255"
+    labelGreen="204" labelRed="153" logicalServer="" loopMaximum="0"
+    loopMaximumField="" name="6" orientation="horizontal" red="128"
+    retryCount="0" stepLock="false" uid="P7" useCorrelation="false">
+    <documentation/>
+    <businessKPIs/>
+    <fontData boldFont="false" fontFamily="" italicFont="false"/>
+    <annotation Id="70bfc85d-e005-4483-8052-d72c95dc92c8" blue="128"
+      green="255" height="100" name="" red="255"
+      text="Valores posibles para la variable retornoAnalisisSeguroVida: &#xd;&#xa;aprobar&#xd;&#xa;modificarDeclaracionSegVida&#xd;&#xa;requiereAtencionSucursal&#xd;&#xa;rechazar"
+      uid="A4" width="182" x="1245" y="298">
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+    </annotation>
+    <gatewayStep Id="a8fd9dd1-334c-430b-81ca-c3fe14cc1189"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="35"
+      label="¿DJ de seguro de vida rechazada?" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default" retryCount="0"
+      stepLock="false" uid="S13" useCorrelation="false" width="35"
+      x="540" y="59">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <gatewayStep Id="1a63be6c-5329-45ce-b74b-4f9213e2ec50"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="35"
+      label="Esta aprobado?" labelHeight="-1" labelWidth="-1"
+      logicalServer="Default" retryCount="0" stepLock="false" uid="S19"
+      useCorrelation="false" width="35" x="540" y="164">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <gatewayStep Id="bade5f48-f5f8-4cf1-9ba0-281b2ad338c0"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="35"
+      label="Requiere intervención de un oficial?" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default" retryCount="0"
+      stepLock="false" uid="S32" useCorrelation="false" width="35"
+      x="540" y="261">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <gatewayStep Id="d390c4d2-4cb1-4629-9365-b3661dc520f9"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="35"
+      label="Join Or" labelHeight="-1" labelWidth="-1"
+      logicalServer="Default" retryCount="0" stepLock="false" uid="S35"
+      useCorrelation="false" width="35" x="1108" y="457">
+      <documentation/>
+      <join joinType="UnsynchronizedOr" suppressJoinFailure="false" synchronizationPoint="false"/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <gatewayStep Id="d4680f14-8a8e-487e-8946-f69e97b15a93"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="35"
+      label="El cliente debe modificar la DJ?" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default" retryCount="0"
+      stepLock="false" uid="S37" useCorrelation="false" width="35"
+      x="968" y="457">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <gatewayStep Id="dbd3471a-17b5-4896-b96c-bff570bf025a"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="35"
+      label="" labelHeight="-1" labelWidth="-1" logicalServer="Default"
+      retryCount="0" stepLock="false" uid="S43" useCorrelation="false"
+      width="35" x="275" y="59">
+      <documentation/>
+      <join joinType="UnsynchronizedOr" suppressJoinFailure="false" synchronizationPoint="false"/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <receiveStep Id="5aeb3ae0-3651-42b0-8861-a124e3b16b1e"
+      allowsSynchronousReply="false" edaEventQName="" edaSubFilter=""
+      edaSubFilterLang="" eventType="START"
+      externalizeConditions="false" height="27"
+      isStartStepServiceRequired="true"
+      label="Solicitud de análisis de DJ de seguro de vida"
+      labelHeight="-1" labelWidth="-1" logicalServer="Default"
+      outputMessageType="{WFHipotecarios_Implementacion.procesos.prestamoHipotecario.analizarSeguroDeVida.documentos}analizarSeguroDeVidaPub"
+      receiveProtocol="SUBSCRIPTION" receiveType="EMPTY"
+      stepLock="false" uid="S10" useCorrelation="false" width="27"
+      x="62" y="63">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <output name="{ProcessNamespace}analizarSeguroDeVidaPub"/>
+      <wmExpressionFilter/>
+    </receiveStep>
+    <gatewayStep Id="f539af73-8ae8-4b9a-be6b-ac3cb7219886"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="35"
+      label="Join" labelHeight="-1" labelWidth="-1"
+      logicalServer="Default" retryCount="0" stepLock="false" uid="S95"
+      useCorrelation="false" width="35" x="1374" y="164">
+      <documentation/>
+      <join joinType="UnsynchronizedOr" suppressJoinFailure="false" synchronizationPoint="false"/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <terminateStep Id="3e39a5b0-67b0-45c7-b069-25b75af19aef"
+      escalateFailure="true" height="27"
+      label="Aprobación de seguro notificada" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default" stepLock="false"
+      terminateStatus="DONE" uid="S23" useCorrelation="false" width="27"
+      x="1719" y="168">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+    </terminateStep>
+    <invokeStep Id="69162917-45bb-48e7-9765-c6fcc900f28e"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="" invokeId="" invokeLocation=""
+      invokeName="" invokeType="ISSERVICE" isCompensating="false"
+      isTestAfter="false" label="Notificar al cliente el rechazo"
+      labelHeight="-1" labelWidth="-1" logicalServer="Default"
+      loopMaximum="0" loopMaximumField="" retryCount="0"
+      routingRuleSet="" ruleType="WMRULE" stepLock="false" uid="S15"
+      useCorrelation="false" width="93" x="741" y="46">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <wmExpression/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="70cb85d5-257b-4ccc-afda-5bfc6c814ce8"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="" invokeId="" invokeLocation=""
+      invokeName="" invokeType="ISSERVICE" isCompensating="false"
+      isTestAfter="false"
+      label="Notificar al cliente que se acerque a la sucursal"
+      labelHeight="-1" labelWidth="-1" logicalServer="Default"
+      loopMaximum="0" loopMaximumField="" retryCount="0"
+      routingRuleSet="" ruleType="WMRULE" stepLock="false" uid="S25"
+      useCorrelation="false" width="93" x="624" y="444">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <wmExpression/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="353ac34c-9aef-411f-9318-d194472cc2e5"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60"
+      invokeContainer="WFHipotecarios_Implementacion.procesos.prestamoHipotecario.analizarSeguroDeVida.servicios"
+      invokeId="" invokeLocation="" invokeName="publicarSeguroDeVida"
+      invokeType="ISSERVICE" isCompensating="false" isTestAfter="false"
+      label="Notificar al cliente modificacion de la DJ"
+      labelHeight="-1" labelWidth="-1" logicalServer="Default"
+      loopMaximum="0" loopMaximumField="" retryCount="0"
+      routingRuleSet="" ruleType="WMRULE" stepLock="false" uid="S40"
+      useCorrelation="false" width="93" x="1246" y="444">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <wmExpression/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="1a246f9c-951c-43a5-94d9-5686f3e3e96a"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60"
+      invokeContainer="WFHipotecarios_Implementacion.procesos.prestamoHipotecario.analizarSeguroDeVida.servicios"
+      invokeId="WFHipotecarios_Implementacion.procesos.prestamoHipotecario.analizarSeguroDeVida.servicios:inicializarProceso"
+      invokeLocation="" invokeName="inicializarProceso"
+      invokeType="ISSERVICE" isCompensating="false" isTestAfter="false"
+      label="inicializarProceso" labelHeight="-1" labelWidth="-1"
+      logicalServer="Default" loopMaximum="0" loopMaximumField=""
+      retryCount="0" routingRuleSet="" ruleType="WMRULE"
+      stepLock="false" uid="S73" useCorrelation="false" width="93"
+      x="139" y="46">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}ProcessData"/>
+      <input name="{ProcessNamespace}analizarSeguroDeVidaPub"/>
+      <wmExpression/>
+      <output name="{ProcessNamespace}datosGenericos"/>
+      <output name="{ProcessNamespace}prestamo"/>
+      <output name="{ProcessNamespace}seguro"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="ac8d8ece-c8a3-4a06-bdec-3b82683b9cf0"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="P/TasksPrestamosHipotecarios"
+      invokeId="19BD2DCF-B740-063E-3F83-5367DED983A7" invokeLocation=""
+      invokeName="WFHipotecarios_AnalizarSeguroDeVida_AnalizarDeclaracionJurada"
+      invokeType="TASK" isCompensating="false" isTestAfter="false"
+      label="Analizar DJ de seguro y generar dictamen" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default" loopMaximum="0"
+      loopMaximumField="" retryCount="0" routingRuleSet=""
+      ruleType="WMRULE" stepLock="false" uid="S78"
+      useCorrelation="false" width="93" x="394" y="46">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}datosGenericos"/>
+      <input name="{ProcessNamespace}prestamo"/>
+      <input name="{ProcessNamespace}seguro"/>
+      <wmExpression/>
+      <output name="{ProcessNamespace}datosGenericos"/>
+      <output name="{ProcessNamespace}prestamo"/>
+      <output name="{ProcessNamespace}seguro"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="2e1ea519-5b28-445a-bce3-105f80bc01e8"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="P/TasksPrestamosHipotecarios"
+      invokeId="5F7599B2-DDB9-8952-85B5-B1D8CC9BECD9" invokeLocation=""
+      invokeName="WFHipotecarios_AnalizarSeguroDeVida_GestionarSolicitudSeguro"
+      invokeType="TASK" isCompensating="false" isTestAfter="false"
+      label="Gestionar solicitud del area de seguros" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default" loopMaximum="0"
+      loopMaximumField="" retryCount="0" routingRuleSet=""
+      ruleType="WMRULE" stepLock="false" uid="S81"
+      useCorrelation="false" width="93" x="801" y="444">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}prestamo"/>
+      <input name="{ProcessNamespace}seguro"/>
+      <input name="{ProcessNamespace}datosGenericos"/>
+      <wmExpression/>
+      <output name="{ProcessNamespace}prestamo"/>
+      <output name="{ProcessNamespace}seguro"/>
+      <output name="{ProcessNamespace}datosGenericos"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="42d50609-1ff2-4e21-a7cf-6d4d1fa5851d"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60"
+      invokeContainer="WFHipotecarios_Implementacion.procesos.prestamoHipotecario.analizarSeguroDeVida.servicios"
+      invokeId="WFHipotecarios_Implementacion.procesos.prestamoHipotecario.analizarSeguroDeVida.servicios:publicarSeguroDeVida"
+      invokeLocation="" invokeName="publicarSeguroDeVida"
+      invokeType="ISSERVICE" isCompensating="false" isTestAfter="false"
+      label="fin de proceso por aprobacion de seguro" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default" loopMaximum="0"
+      loopMaximumField="" retryCount="0" routingRuleSet=""
+      ruleType="WMRULE" stepLock="false" uid="S89"
+      useCorrelation="false" width="93" x="1517" y="151">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}prestamo"/>
+      <input name="{ProcessNamespace}seguro"/>
+      <wmExpression/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <transition Id="fa99e24c-c09a-4404-80a6-d34dfc1d223a" blue="255"
+      conditionDescription="no" conditionText="Default"
+      conditionType="ELSE" green="0" lineShape="STRAIGHT" red="0"
+      source="S13" sourceLocation="557,94" sourceTerminal="BOTTOM"
+      target="S19" targetLocation="557,164" targetTerminal="TOP" uid="T20">
+      <bendpoint index="0" location="602,136" weight="0.5"/>
+      <bendpoint index="1" location="602,136" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="12" x="607" y="144">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="codRetornoTarea"
+          leftOperand="{ProcessNamespace}prestamo" operator="=" rightOperand="'aprobado'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="69f23484-f66b-402c-a536-58b76adeb6da" blue="255"
+      conditionDescription="si"
+      conditionText="seguro/retornoAnalisisSeguroVida = rechazar"
+      conditionType="IF" green="0" lineShape="STRAIGHT" red="0"
+      source="S13" sourceLocation="575,76" sourceTerminal="RIGHT"
+      target="S15" targetLocation="741,76" targetTerminal="LEFT" uid="T17">
+      <bendpoint index="0" location="702,84" weight="0.5"/>
+      <bendpoint index="1" location="702,84" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="8" x="619" y="68">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="retornoAnalisisSeguroVida"
+          leftOperand="{ProcessNamespace}seguro" operator="=" rightOperand="'rechazar'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="11c3ee7e-7015-4c81-8096-9c6c3b1bf864" blue="255"
+      conditionDescription="si"
+      conditionText="seguro/retornoAnalisisSeguroVida = modificarDeclaracionSegVida"
+      conditionType="IF" green="0" lineShape="STRAIGHT" red="0"
+      source="S37" sourceLocation="1003,474" sourceTerminal="RIGHT"
+      target="S35" targetLocation="1108,474" targetTerminal="LEFT" uid="T39">
+      <bendpoint index="0" location="1100,482" weight="0.5"/>
+      <bendpoint index="1" location="1100,482" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="8" x="1056" y="453">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="retornoAnalisisSeguroVida"
+          leftOperand="{ProcessNamespace}seguro" operator="=" rightOperand="'modificarDeclaracionSegVida'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="299d5798-bae3-4c4d-a415-00ead70dee7d" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S35"
+      sourceLocation="1143,474" sourceTerminal="RIGHT" target="S40"
+      targetLocation="1246,474" targetTerminal="LEFT" uid="T41">
+      <bendpoint index="0" location="1238,482" weight="0.5"/>
+      <bendpoint index="1" location="1238,482" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="ded4439b-ed13-4417-b006-aacd3ab42a54" blue="255"
+      conditionDescription="no" conditionText="Default"
+      conditionType="ELSE" green="0" lineShape="STRAIGHT" red="0"
+      source="S37" sourceLocation="985,492" sourceTerminal="BOTTOM"
+      target="S43" targetLocation="292,94" targetTerminal="BOTTOM" uid="T48">
+      <bendpoint index="0" location="1030,577" weight="0.5"/>
+      <bendpoint index="1" location="337,577" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="12" x="600" y="563">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="codRetornoTarea"
+          leftOperand="{ProcessNamespace}prestamo" operator="=" rightOperand="'rechazado'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="10d13e2e-e08b-4a72-a23b-8cfb4b78c9ec" blue="255"
+      conditionDescription="no" conditionText="Default"
+      conditionType="ELSE" green="0" lineShape="STRAIGHT" red="0"
+      source="S19" sourceLocation="557,199" sourceTerminal="BOTTOM"
+      target="S32" targetLocation="557,261" targetTerminal="TOP" uid="T56">
+      <bendpoint index="0" location="602,238" weight="0.5"/>
+      <bendpoint index="1" location="602,238" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="12" x="596" y="224">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="codRetornoTarea"
+          leftOperand="{ProcessNamespace}prestamo" operator="=" rightOperand="'aprobado'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="397b8290-23d2-4fae-bbfe-ef7fd340899b" blue="255"
+      conditionDescription="si"
+      conditionText="seguro/retornoAnalisisSeguroVida = requiereAtencionSucursal"
+      conditionType="IF" green="0" lineShape="STRAIGHT" red="0"
+      source="S32" sourceLocation="557,296" sourceTerminal="BOTTOM"
+      target="S25" targetLocation="624,474" targetTerminal="LEFT" uid="T57">
+      <bendpoint index="0" location="602,482" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="8" x="599" y="343">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="retornoAnalisisSeguroVida"
+          leftOperand="{ProcessNamespace}seguro" operator="=" rightOperand="'requiereAtencionSucursal'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="439e66b8-4583-4c53-a7ae-b6ee20db95c1" blue="255"
+      conditionDescription="no" conditionText="Default"
+      conditionType="ELSE" green="0" lineShape="STRAIGHT" red="0"
+      source="S32" sourceLocation="575,278" sourceTerminal="RIGHT"
+      target="S35" targetLocation="1125,457" targetTerminal="TOP" uid="T58">
+      <bendpoint index="0" location="1170,286" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="12" x="889" y="272">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="codRetornoTarea"
+          leftOperand="{ProcessNamespace}prestamo" operator="=" rightOperand="'rechazado'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="2b6908f2-c0da-4a4f-ae45-e80965b19f2d" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S78"
+      sourceLocation="487,76" sourceTerminal="RIGHT" target="S13"
+      targetLocation="540,76" targetTerminal="LEFT" uid="T80">
+      <bendpoint index="0" location="558,84" weight="0.5"/>
+      <bendpoint index="1" location="558,84" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="2af61b76-a8ef-44d8-bd94-904d124d9e8c" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S25"
+      sourceLocation="717,474" sourceTerminal="RIGHT" target="S81"
+      targetLocation="801,474" targetTerminal="LEFT" uid="T82">
+      <bendpoint index="0" location="804,482" weight="0.5"/>
+      <bendpoint index="1" location="804,482" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="3d6f1e57-0456-49fe-9b8e-b78fb75c9f72" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S81"
+      sourceLocation="894,474" sourceTerminal="RIGHT" target="S37"
+      targetLocation="968,474" targetTerminal="LEFT" uid="T83">
+      <bendpoint index="0" location="976,482" weight="0.5"/>
+      <bendpoint index="1" location="976,482" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="e7e2dcdf-99f7-4cb2-9740-37d2fe522256" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S10"
+      sourceLocation="89,76" sourceTerminal="RIGHT" target="S73"
+      targetLocation="139,76" targetTerminal="LEFT" uid="T84">
+      <bendpoint index="0" location="158,84" weight="0.5"/>
+      <bendpoint index="1" location="158,84" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="45581024-6471-435c-9c5c-d7bc2989cf15" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S73"
+      sourceLocation="232,76" sourceTerminal="RIGHT" target="S43"
+      targetLocation="275,76" targetTerminal="LEFT" uid="T85">
+      <bendpoint index="0" location="298,84" weight="0.5"/>
+      <bendpoint index="1" location="298,84" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="4d73625a-3ca2-48ad-8b9e-acc6d4b3da75" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S43"
+      sourceLocation="310,76" sourceTerminal="RIGHT" target="S78"
+      targetLocation="394,76" targetTerminal="LEFT" uid="T86">
+      <bendpoint index="0" location="396,84" weight="0.5"/>
+      <bendpoint index="1" location="396,84" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="961927c6-0857-48c8-bcc9-0b05ab76b05a" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S40"
+      sourceLocation="1339,474" sourceTerminal="RIGHT" target="S95"
+      targetLocation="1391,199" targetTerminal="BOTTOM" uid="T96">
+      <bendpoint index="0" location="1436,482" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="e61f937c-230f-4b11-b820-93558ddd7ebe" blue="255"
+      conditionDescription="si"
+      conditionText="seguro/retornoAnalisisSeguroVida = aprobar"
+      conditionType="IF" green="0" lineShape="STRAIGHT" red="0"
+      source="S19" sourceLocation="575,181" sourceTerminal="RIGHT"
+      target="S95" targetLocation="1374,181" targetTerminal="LEFT" uid="T97">
+      <bendpoint index="0" location="1018,189" weight="0.5"/>
+      <bendpoint index="1" location="1018,189" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="-1" red="255" width="-1" x="907" y="206">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="retornoAnalisisSeguroVida"
+          leftOperand="{ProcessNamespace}seguro" operator="=" rightOperand="'aprobar'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="6f69dd63-77b6-4e03-8455-0a4ffd30d6d6" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S89"
+      sourceLocation="1610,181" sourceTerminal="RIGHT" target="S23"
+      targetLocation="1719,181" targetTerminal="LEFT" uid="T91">
+      <bendpoint index="0" location="1708,189" weight="0.5"/>
+      <bendpoint index="1" location="1708,189" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="919a30fb-e9a6-42d8-8cf6-816cb1995474" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S15"
+      sourceLocation="834,76" sourceTerminal="RIGHT" target="S95"
+      targetLocation="1391,164" targetTerminal="TOP" uid="T98">
+      <bendpoint index="0" location="1436,84" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="78740456-8b64-484d-ad06-1fc7ecacae38" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S95"
+      sourceLocation="1409,181" sourceTerminal="RIGHT" target="S89"
+      targetLocation="1517,181" targetTerminal="LEFT" uid="T99">
+      <bendpoint index="0" location="1508,189" weight="0.5"/>
+      <bendpoint index="1" location="1508,189" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <timeout calendarAlias="" calendarTime="0:0:0"
+      dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+      dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+      dynamicFieldName="" isCalendarTimeout="false"
+      isStaticTimeout="true" isXPathTimeout="false"
+      pipelineCalendarAlias="" pipelineCalendarDays=""
+      pipelineCalendarHours="" pipelineCalendarMinutes=""
+      timeoutStyle="RELATIVE" timeoutType="stepTimeout" timeoutValue="0" xpathTimeoutValue=""/>
+    <wmExpression/>
+    <swimlane Id="a4a9d7de-24ee-4885-ad4f-1d4630899e19" blue="204"
+      green="255" height="425" label="Analista de Seguro"
+      labelBlue="255" labelGreen="238" labelRed="221"
+      name="Analista de Seguro" red="255" uid="W8" width="1829">
+      <documentation/>
+    </swimlane>
+    <swimlane Id="f2249026-217a-493e-a943-2907a85e9fb4" blue="204"
+      green="255" height="204" label="Oficial segmento individuos"
+      labelBlue="255" labelGreen="238" labelRed="221"
+      name="Oficial segmento individuos" red="255" uid="W9" width="1829">
+      <documentation/>
+    </swimlane>
+  </pool>
+  <pool Id="d5366b09-12ee-4ccf-9bb2-f7315373c639" blue="128"
+    containerType="BPMN_SUBPROCESS" external="true"
+    externalizeConditions="false" green="128" isCollapsed="false"
+    isCompensating="false" isTestAfter="false" label="Pool"
+    labelBlue="255" labelGreen="204" labelRed="153" logicalServer=""
+    loopMaximum="0" loopMaximumField="" name="1"
+    orientation="horizontal" red="128" retryCount="0" stepLock="false"
+    uid="P2" useCorrelation="false">
+    <documentation/>
+    <businessKPIs/>
+    <fontData boldFont="false" fontFamily="" italicFont="false"/>
+    <poolReference Id="a723b9c6-e55e-4ceb-846f-41fbdcbbe698"
+      label="Analizar declaración de seguro" logicalServer="Default"
+      poolName="6" stepLock="false" uid="S3" useCorrelation="false"
+      x="15" y="7">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="" italicFont="false"/>
+    </poolReference>
+    <timeout calendarAlias="" calendarTime="0:0:0"
+      dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+      dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+      dynamicFieldName="" isCalendarTimeout="false"
+      isStaticTimeout="true" isXPathTimeout="false"
+      pipelineCalendarAlias="" pipelineCalendarDays=""
+      pipelineCalendarHours="" pipelineCalendarMinutes=""
+      timeoutStyle="RELATIVE" timeoutType="stepTimeout" timeoutValue="0" xpathTimeoutValue=""/>
+    <wmExpression/>
+  </pool>
+  <documentation/>
+  <qualityOfService expressPipeline="true" minLogLevel="5"
+    optimizeLocally="true" volatileTracking="false" volatileTransition="true"/>
+  <edaIntrinsics processEvent="false" stepEvent="false"/>
+  <easeOfOperations enableProcessForTrackingInTarget="false"
+    enableProcessInTarget="false" stepsEnabledForResubmitInTarget=""/>
+</businessProcessDiagram>

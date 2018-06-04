@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<businessProcessDiagram xmlns="http://www.webmethods.com/bpm/2006/"
+  Id="60d6b5a1-89b9-479c-8874-b9ccc0e26f5c" bpmnStyle="false" build="1"
+  canvasPool="1" creator="Administrador" description="ARIS V7"
+  failProcessOnStepFailure="false" focalRole="Focal role"
+  name="WFHipotecarios_EmitirDictamenRiesgo"
+  packageName="WFHipotecarios_procesos" processCategory=""
+  rnSync="false" runtimeVersion="1" transitionLabelPref="expression"
+  unSynchJoinDeadPath="true" version="9.8.0">
+  <kpiDimensions/>
+  <systemKPIs>
+    <systemKPI Id="" description="" name="Volume" unitOfMeasure=""/>
+    <systemKPI Id="" description="" name="Cycle Time" unitOfMeasure=""/>
+    <systemKPI Id="" description="" name="Error Count" unitOfMeasure=""/>
+  </systemKPIs>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="ProcessData" name="{ProcessNamespace}ProcessData" type="{pub.prt}ProcessData"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="datosGenericos" name="{ProcessNamespace}datosGenericos" type="{bbvaInboxGenerico.docs}datosGenericos"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="emitirDictamenRiesgoPub"
+    name="{ProcessNamespace}emitirDictamenRiesgoPub" type="{WFHipotecarios_Implementacion.procesos.prestamoHipotecario.emitirDictamenRiesgo.documentos}emitirDictamenRiesgoPub"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="emitirDictamen" name="{ProcessNamespace}emitirDictamen" type="{WFHipotecarios_Implementacion.procesos.prestamoHipotecario.emitirDictamenRiesgo.documentos}emitirDictamen"/>
+  <logicalDataItem Id="" description="" dimension="0" label="prestamo"
+    name="{ProcessNamespace}prestamo" type="{WFHipotecarios_Implementacion.procesos.documentos}prestamo"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="finDictamenRiesgoPub"
+    name="{ProcessNamespace}finDictamenRiesgoPub" type="{WFHipotecarios_Implementacion.procesos.prestamoHipotecario.emitirDictamenRiesgo.documentos}finDictamenRiesgoPub"/>
+  <logicalDataItem Id="" description="" dimension="0"
+    label="etapaAnterior" name="{ProcessNamespace}etapaAnterior" type="{http://webmethods.com/bpm/ISType/2006}string"/>
+  <timeout calendarAlias="" calendarTime="0:0:0"
+    dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+    dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+    dynamicFieldName="" isCalendarTimeout="false" isStaticTimeout="true"
+    isXPathTimeout="false" pipelineCalendarAlias=""
+    pipelineCalendarDays="" pipelineCalendarHours=""
+    pipelineCalendarMinutes="" timeoutStyle="RELATIVE"
+    timeoutType="processTimeout" timeoutValue="0" xpathTimeoutValue=""/>
+  <pool Id="0962e6cb-be46-456d-9bd0-9a0dde8ad295" blue="128"
+    containerType="BPMN_SUBPROCESS" external="false"
+    externalizeConditions="false" green="128" isCollapsed="false"
+    isCompensating="false" isTestAfter="false"
+    label="BBVA - Emitir Dictamen de Riesgo" labelBlue="255"
+    labelGreen="204" labelRed="153" logicalServer="" loopMaximum="0"
+    loopMaximumField="" name="6" orientation="horizontal" red="128"
+    retryCount="0" stepLock="false" uid="P7" useCorrelation="false">
+    <documentation/>
+    <businessKPIs/>
+    <fontData boldFont="false" fontFamily="" italicFont="false"/>
+    <annotation Id="fca01905-a720-4bdd-8316-183809895ed8" blue="128"
+      green="255" height="165" name="" red="255"
+      text="Los posibles valores para la variable emitirDictamen/retornoDictamen &#xd;&#xa;pueden ser:  &#xd;&#xa;&#xd;&#xa;aprobar&#xd;&#xa;modificarSolicitud&#xd;&#xa;modificarInmueble&#xd;&#xa;modificarDatosContratacion&#xd;&#xa;modificarOfertaSegunTasacion&#xd;&#xa;rechazar"
+      uid="A7" width="223" x="1213" y="322">
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+    </annotation>
+    <gatewayStep Id="eade4753-bb6e-4cd4-ba44-f659c0797f3a"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="35"
+      label="Trámite rechazado?" labelHeight="-1" labelWidth="-1"
+      logicalServer="Default" retryCount="0" stepLock="false" uid="S18"
+      useCorrelation="false" width="35" x="512" y="117">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <gatewayStep Id="cc503a45-efa1-40f4-a097-2c3057f4fda4"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="35"
+      label="Trámite aprobado?" labelHeight="-1" labelWidth="-1"
+      logicalServer="Default" retryCount="0" stepLock="false" uid="S24"
+      useCorrelation="false" width="35" x="593" y="248">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <receiveStep Id="e1036d02-3b1b-4be5-bbc5-daf3e1c28781"
+      allowsSynchronousReply="false" edaEventQName="" edaSubFilter=""
+      edaSubFilterLang="" eventType="START"
+      externalizeConditions="false" height="27"
+      isStartStepServiceRequired="true"
+      label="Solicitud de dictamen de Riesgos" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default"
+      outputMessageType="{WFHipotecarios_Implementacion.procesos.prestamoHipotecario.emitirDictamenRiesgo.documentos}emitirDictamenRiesgoPub"
+      receiveProtocol="SUBSCRIPTION" receiveType="EMPTY"
+      stepLock="false" uid="S9" useCorrelation="false" width="27" x="73" y="121">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <output name="{ProcessNamespace}emitirDictamenRiesgoPub"/>
+      <wmExpressionFilter/>
+    </receiveStep>
+    <terminateStep Id="dbc5669a-6779-4906-87f7-20b61b1e9a87"
+      escalateFailure="true" height="27"
+      label="Fin Gestión solicitud de riesgo" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default" stepLock="false"
+      terminateStatus="DONE" uid="S36" useCorrelation="false" width="27"
+      x="1445" y="252">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+    </terminateStep>
+    <gatewayStep Id="eef1a782-1be4-4f8b-a5f0-5d1f32177143"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="35"
+      label="" labelHeight="-1" labelWidth="-1" logicalServer="Default"
+      retryCount="0" stepLock="false" uid="S53" useCorrelation="false"
+      width="35" x="280" y="117">
+      <documentation/>
+      <join joinType="UnsynchronizedOr" suppressJoinFailure="false" synchronizationPoint="false"/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <gatewayStep Id="116ccd27-af8e-43b5-8316-decc79e51269"
+      externalizeConditions="false" gatewayType="EXCLUSIVE" height="35"
+      label="Join " labelHeight="-1" labelWidth="-1"
+      logicalServer="Default" retryCount="0" stepLock="false" uid="S72"
+      useCorrelation="false" width="35" x="1146" y="248">
+      <documentation/>
+      <join joinType="UnsynchronizedOr" suppressJoinFailure="false" synchronizationPoint="false"/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </gatewayStep>
+    <invokeStep Id="110fcf35-066b-4f1b-a6b5-33de480a8267"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="P/TasksPrestamosHipotecarios"
+      invokeId="D5B6EAA1-3DDD-1AE5-EA0B-572DB7AEB5C0" invokeLocation=""
+      invokeName="AnalizarTramiteYGenerarDictamen" invokeType="TASK"
+      isCompensating="false" isTestAfter="false"
+      label="Analizar trámite y generar dictamen" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default" loopMaximum="0"
+      loopMaximumField="" retryCount="0" routingRuleSet=""
+      ruleType="WMRULE" stepLock="false" uid="S16"
+      useCorrelation="false" width="93" x="371" y="104">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}datosGenericos"/>
+      <input name="{ProcessNamespace}emitirDictamen"/>
+      <input name="{ProcessNamespace}prestamo"/>
+      <wmExpression/>
+      <output name="{ProcessNamespace}datosGenericos"/>
+      <output name="{ProcessNamespace}emitirDictamen"/>
+      <output name="{ProcessNamespace}prestamo"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="7c713b7b-50bc-4211-9f7d-a65df9d624ef"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="" invokeId="" invokeLocation=""
+      invokeName="" invokeType="ISSERVICE" isCompensating="false"
+      isTestAfter="false" label="Notificar al cliente el rechazo"
+      labelHeight="-1" labelWidth="-1" logicalServer="Default"
+      loopMaximum="0" loopMaximumField="" retryCount="0"
+      routingRuleSet="" ruleType="WMRULE" stepLock="false" uid="S20"
+      useCorrelation="false" width="93" x="729" y="104">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <wmExpression/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="7d05c4f0-cc93-40a2-a774-fba58fa0c2fb"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60"
+      invokeContainer="WFHipotecarios_Implementacion.procesos.prestamoHipotecario.emitirDictamenRiesgo.servicios"
+      invokeId="" invokeLocation=""
+      invokeName="publicarFinDictamenRiesgo" invokeType="ISSERVICE"
+      isCompensating="false" isTestAfter="false"
+      label="Notificar al cliente la aprobación" labelHeight="-1"
+      labelWidth="-1" logicalServer="Default" loopMaximum="0"
+      loopMaximumField="" retryCount="0" routingRuleSet=""
+      ruleType="WMRULE" stepLock="false" uid="S26"
+      useCorrelation="false" width="93" x="729" y="235">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}emitirDictamen"/>
+      <input name="{ProcessNamespace}finDictamenRiesgoPub"/>
+      <input name="{ProcessNamespace}prestamo"/>
+      <wmExpression/>
+      <output name="{ProcessNamespace}finDictamenRiesgoPub"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="c5bbda30-9bad-4c09-874e-12a2b09ff515"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="" invokeId="" invokeLocation=""
+      invokeName="" invokeType="ISSERVICE" isCompensating="false"
+      isTestAfter="false"
+      label="Notificar al cliente que concurra a la sucursal"
+      labelHeight="-1" labelWidth="-1" logicalServer="Default"
+      loopMaximum="0" loopMaximumField="" retryCount="0"
+      routingRuleSet="" ruleType="WMRULE" stepLock="false" uid="S30"
+      useCorrelation="false" width="93" x="729" y="389">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <wmExpression/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="95231649-b3b6-45bf-983f-c473514d8f83"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60" invokeContainer="P/TasksPrestamosHipotecarios"
+      invokeId="6273FFAF-AE92-D3AF-2940-C1574AE1DE78" invokeLocation=""
+      invokeName="GestionarSolicitudDeRiesgo" invokeType="TASK"
+      isCompensating="false" isTestAfter="false"
+      label="Gestionar solicitud de Riesgos en sucursal"
+      labelHeight="-1" labelWidth="-1" logicalServer="Default"
+      loopMaximum="0" loopMaximumField="" retryCount="0"
+      routingRuleSet="" ruleType="WMRULE" stepLock="false" uid="S34"
+      useCorrelation="false" width="93" x="992" y="580">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}datosGenericos"/>
+      <input name="{ProcessNamespace}prestamo"/>
+      <wmExpression/>
+      <output name="{ProcessNamespace}datosGenericos"/>
+      <output name="{ProcessNamespace}prestamo"/>
+      <output name="{ProcessNamespace}etapaAnterior"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="017060c4-c11a-4917-bd1e-25aafb60e796"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60"
+      invokeContainer="WFHipotecarios_Implementacion.procesos.prestamoHipotecario.emitirDictamenRiesgo.servicios"
+      invokeId="WFHipotecarios_Implementacion.procesos.prestamoHipotecario.emitirDictamenRiesgo.servicios:inicializarProceso"
+      invokeLocation="" invokeName="inicializarProceso"
+      invokeType="ISSERVICE" isCompensating="false" isTestAfter="false"
+      label="Inicializar proceso" labelHeight="-1" labelWidth="-1"
+      logicalServer="Default" loopMaximum="0" loopMaximumField=""
+      retryCount="0" routingRuleSet="" ruleType="WMRULE"
+      stepLock="false" uid="S57" useCorrelation="false" width="93"
+      x="150" y="104">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}emitirDictamenRiesgoPub"/>
+      <wmExpression/>
+      <output name="{ProcessNamespace}emitirDictamen"/>
+      <output name="{ProcessNamespace}prestamo"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+    </invokeStep>
+    <invokeStep Id="409934c7-022e-47d0-a2d6-b6af6e1191ed"
+      dynamicReferenceProcess="false" externalizeConditions="false"
+      height="60"
+      invokeContainer="WFHipotecarios_Implementacion.procesos.prestamoHipotecario.emitirDictamenRiesgo.servicios"
+      invokeId="WFHipotecarios_Implementacion.procesos.prestamoHipotecario.emitirDictamenRiesgo.servicios:publicarFinDictamenRiesgo"
+      invokeLocation="" invokeName="publicarFinDictamenRiesgo"
+      invokeType="ISSERVICE" isCompensating="false" isTestAfter="false"
+      label="fin proceso" labelHeight="-1" labelWidth="-1"
+      logicalServer="Default" loopMaximum="0" loopMaximumField=""
+      retryCount="0" routingRuleSet="" ruleType="WMRULE"
+      stepLock="false" uid="S62" useCorrelation="false" width="93"
+      x="1270" y="235">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+        <fontColor blue="0" green="0" red="0"/>
+      </fontData>
+      <input name="{ProcessNamespace}emitirDictamen"/>
+      <input name="{ProcessNamespace}prestamo"/>
+      <loggedField fieldAlias="emitirDictamen" fieldPath=""
+        logicalDataItem="{ProcessNamespace}emitirDictamen" mode="INPUT"/>
+      <loggedField fieldAlias="retornoDictamen"
+        fieldPath="retornoDictamen"
+        logicalDataItem="{ProcessNamespace}emitirDictamen" mode="INPUT"/>
+      <loggedField fieldAlias="prestamo" fieldPath=""
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="area" fieldPath="area"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="canalOrigen" fieldPath="canalOrigen"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="cantidadDiasTramite"
+        fieldPath="cantidadDiasTramite"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="codEstado" fieldPath="codEstado"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="codPantallaEstado"
+        fieldPath="codPantallaEstado"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="codRetornoTarea"
+        fieldPath="codRetornoTarea"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="estado" fieldPath="estado"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="etapa" fieldPath="etapa"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="fechaAlta" fieldPath="fechaAlta"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="fechaReingresoRiesgos"
+        fieldPath="fechaReingresoRiesgos"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="idPaso" fieldPath="idPaso"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="legajoAnalistaRiesgos"
+        fieldPath="legajoAnalistaRiesgos"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="marcaComite" fieldPath="marcaComite"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="nroDocumento" fieldPath="nroDocumento"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="nroTramite" fieldPath="nroTramite"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="ordenPantalla" fieldPath="ordenPantalla"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="porReingresoRiesgos"
+        fieldPath="porReingresoRiesgos"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="sentido" fieldPath="sentido"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="sucursal" fieldPath="sucursal"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <loggedField fieldAlias="tarea" fieldPath="tarea"
+        logicalDataItem="{ProcessNamespace}prestamo" mode="INPUT"/>
+      <wmExpression/>
+      <output name="{ProcessNamespace}finDictamenRiesgoPub"/>
+      <extendedProperty name="retries" value="0"/>
+      <extendedProperty name="retryInterval" value="60000"/>
+      <timeout calendarAlias="" calendarTime="0:0:0"
+        dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+        dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+        dynamicFieldName="" isCalendarTimeout="false"
+        isStaticTimeout="true" isXPathTimeout="false"
+        pipelineCalendarAlias="" pipelineCalendarDays=""
+        pipelineCalendarHours="" pipelineCalendarMinutes=""
+        timeoutStyle="RELATIVE" timeoutType="stepTimeout"
+        timeoutValue="0" xpathTimeoutValue=""/>
+      <loggedField fieldAlias="finDictamenRiesgoPub" fieldPath=""
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="finDictamenRiesgo"
+        fieldPath="finDictamenRiesgo"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="finDictamenRiesgo/correlationID"
+        fieldPath="finDictamenRiesgo/correlationID"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="finDictamenRiesgo/retornoDictamen"
+        fieldPath="finDictamenRiesgo/retornoDictamen"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env" fieldPath="_env"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/activation"
+        fieldPath="_env/activation"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/appLastSeqn"
+        fieldPath="_env/appLastSeqn"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/appPassword"
+        fieldPath="_env/appPassword"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/appSeqn" fieldPath="_env/appSeqn"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/appUserName"
+        fieldPath="_env/appUserName"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/priority" fieldPath="_env/priority"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/businessContext"
+        fieldPath="_env/businessContext"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/controlLabel"
+        fieldPath="_env/controlLabel"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/errorsTo" fieldPath="_env/errorsTo"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/errorRequestsTo"
+        fieldPath="_env/errorRequestsTo"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/locale" fieldPath="_env/locale"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/maxResults"
+        fieldPath="_env/maxResults"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/replyTo" fieldPath="_env/replyTo"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/runLevel" fieldPath="_env/runLevel"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/signature"
+        fieldPath="_env/signature"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/signatureType"
+        fieldPath="_env/signatureType"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/startResult"
+        fieldPath="_env/startResult"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/tag" fieldPath="_env/tag"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/trackId" fieldPath="_env/trackId"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/transactionId"
+        fieldPath="_env/transactionId"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/transformState"
+        fieldPath="_env/transformState"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/age" fieldPath="_env/age"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/connectionIntegrity"
+        fieldPath="_env/connectionIntegrity"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/destId" fieldPath="_env/destId"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/enqueueTime"
+        fieldPath="_env/enqueueTime"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/logBroker"
+        fieldPath="_env/logBroker"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/logHost" fieldPath="_env/logHost"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/pubDistinguishedName"
+        fieldPath="_env/pubDistinguishedName"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/pubId" fieldPath="_env/pubId"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/pubNetAddr"
+        fieldPath="_env/pubNetAddr"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/pubSeqn" fieldPath="_env/pubSeqn"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/pubLabel" fieldPath="_env/pubLabel"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/recvTime" fieldPath="_env/recvTime"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/route" fieldPath="_env/route"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/route/broker"
+        fieldPath="_env/route/broker"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/route/recvTime"
+        fieldPath="_env/route/recvTime"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/route/enqueueTime"
+        fieldPath="_env/route/enqueueTime"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/uuid" fieldPath="_env/uuid"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+      <loggedField fieldAlias="_env/status" fieldPath="_env/status"
+        logicalDataItem="{ProcessNamespace}finDictamenRiesgoPub" mode="OUTPUT"/>
+    </invokeStep>
+    <transition Id="9c793853-ce9a-4e98-b30d-c5c652e0c39a" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S16"
+      sourceLocation="464,134" sourceTerminal="RIGHT" target="S18"
+      targetLocation="512,134" targetTerminal="LEFT" uid="T19">
+      <bendpoint index="0" location="576,176" weight="0.5"/>
+      <bendpoint index="1" location="576,176" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="6b2b6ba8-9d90-4d94-8a93-70633e2a0daa" blue="255"
+      conditionDescription="Si"
+      conditionText="emitirDictamen/retornoDictamen = rechazar"
+      conditionType="IF" green="0" lineShape="STRAIGHT" red="0"
+      source="S18" sourceLocation="547,134" sourceTerminal="RIGHT"
+      target="S20" targetLocation="729,134" targetTerminal="LEFT" uid="T21">
+      <bendpoint index="0" location="726,176" weight="0.5"/>
+      <bendpoint index="1" location="726,176" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="9" x="634" y="147">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="retornoDictamen"
+          leftOperand="{ProcessNamespace}emitirDictamen" operator="=" rightOperand="'rechazar'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="adbf7dd7-0242-4709-8d08-2fb26a3c4afa" blue="255"
+      conditionDescription="No" conditionText="Default"
+      conditionType="ELSE" green="0" lineShape="STRAIGHT" red="0"
+      source="S18" sourceLocation="529,152" sourceTerminal="BOTTOM"
+      target="S24" targetLocation="593,265" targetTerminal="LEFT" uid="T25">
+      <bendpoint index="0" location="617,307" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="34" x="626" y="240">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="7e0215cc-0806-4ba7-9f33-8256ff6b8d54" blue="255"
+      conditionDescription="Si"
+      conditionText="emitirDictamen/retornoDictamen = aprobar"
+      conditionType="IF" green="0" lineShape="STRAIGHT" red="0"
+      source="S24" sourceLocation="628,265" sourceTerminal="RIGHT"
+      target="S26" targetLocation="729,265" targetTerminal="LEFT" uid="T27">
+      <bendpoint index="0" location="766,307" weight="0.5"/>
+      <bendpoint index="1" location="766,307" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="9" x="715" y="291">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression>
+        <row chainOperator="" leftFieldPath="retornoDictamen"
+          leftOperand="{ProcessNamespace}emitirDictamen" operator="=" rightOperand="'aprobar'"/>
+      </wmExpression>
+    </transition>
+    <transition Id="8fb6948f-d583-4169-bdf5-9a5756ccee26" blue="255"
+      conditionDescription="No" conditionText="Default"
+      conditionType="ELSE" green="0" lineShape="STRAIGHT" red="0"
+      source="S24" sourceLocation="610,283" sourceTerminal="BOTTOM"
+      target="S30" targetLocation="729,419" targetTerminal="LEFT" uid="T33">
+      <bendpoint index="0" location="698,461" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="false" green="196"
+        height="14" red="255" width="34" x="707" y="388">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="20def3e8-1aa7-4c42-a10b-091fd2ba19c9" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S53"
+      sourceLocation="315,134" sourceTerminal="RIGHT" target="S16"
+      targetLocation="371,134" targetTerminal="LEFT" uid="T55">
+      <bendpoint index="0" location="430,176" weight="0.5"/>
+      <bendpoint index="1" location="430,176" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="6cbcefdb-d2fb-4e9f-be97-0a137060b4db" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S9"
+      sourceLocation="100,134" sourceTerminal="RIGHT" target="S57"
+      targetLocation="150,134" targetTerminal="LEFT" uid="T58">
+      <bendpoint index="0" location="212,176" weight="0.5"/>
+      <bendpoint index="1" location="212,176" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="aa857c48-3bd5-40f5-bb5e-628b799cb23a" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S57"
+      sourceLocation="243,134" sourceTerminal="RIGHT" target="S53"
+      targetLocation="280,134" targetTerminal="LEFT" uid="T59">
+      <bendpoint index="0" location="348,176" weight="0.5"/>
+      <bendpoint index="1" location="348,176" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="f8b8cbf4-c8e6-44b2-9680-6dd2f468cff7" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S30"
+      sourceLocation="822,419" sourceTerminal="RIGHT" target="S34"
+      targetLocation="992,610" targetTerminal="LEFT" uid="T70">
+      <bendpoint index="0" location="994,461" weight="0.5"/>
+      <bendpoint index="1" location="994,652" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="58eab230-02dd-4f88-b130-297bc6c7e36a" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S20"
+      sourceLocation="822,134" sourceTerminal="RIGHT" target="S72"
+      targetLocation="1163,248" targetTerminal="TOP" uid="T73">
+      <bendpoint index="0" location="1251,176" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="35938ccf-5b03-4abf-a242-82f18a05d989" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S26"
+      sourceLocation="822,265" sourceTerminal="RIGHT" target="S72"
+      targetLocation="1146,265" targetTerminal="LEFT" uid="T74">
+      <bendpoint index="0" location="1072,307" weight="0.5"/>
+      <bendpoint index="1" location="1072,307" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="553f975b-8a4c-450d-b511-ca4bdd024b33" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S34"
+      sourceLocation="1085,610" sourceTerminal="RIGHT" target="S72"
+      targetLocation="1163,283" targetTerminal="BOTTOM" uid="T77">
+      <bendpoint index="0" location="1251,652" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="b5fb299f-0b7f-4a44-ad29-d6a25b045f00" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S62"
+      sourceLocation="1363,265" sourceTerminal="RIGHT" target="S36"
+      targetLocation="1445,265" targetTerminal="LEFT" uid="T78">
+      <bendpoint index="0" location="1492,307" weight="0.5"/>
+      <bendpoint index="1" location="1492,307" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <transition Id="4e3a443a-cd4f-4a9d-8cd2-ca872c3540db" blue="255"
+      conditionDescription="" conditionText="" conditionType="IF"
+      green="0" lineShape="STRAIGHT" red="0" source="S72"
+      sourceLocation="1181,265" sourceTerminal="RIGHT" target="S62"
+      targetLocation="1270,265" targetTerminal="LEFT" uid="T79">
+      <bendpoint index="0" location="1312,307" weight="0.5"/>
+      <bendpoint index="1" location="1312,307" weight="0.5"/>
+      <labelLayout blue="0" defaultLocation="true" green="196"
+        height="-1" red="255" width="-1" x="-1" y="-1">
+        <fontData boldFont="false" fontFamily="Arial" fontSize="8" italicFont="false">
+          <fontColor blue="0" green="0" red="0"/>
+        </fontData>
+      </labelLayout>
+      <wmExpression/>
+    </transition>
+    <timeout calendarAlias="" calendarTime="0:0:0"
+      dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+      dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+      dynamicFieldName="" isCalendarTimeout="false"
+      isStaticTimeout="true" isXPathTimeout="false"
+      pipelineCalendarAlias="" pipelineCalendarDays=""
+      pipelineCalendarHours="" pipelineCalendarMinutes=""
+      timeoutStyle="RELATIVE" timeoutType="stepTimeout" timeoutValue="0" xpathTimeoutValue=""/>
+    <wmExpression/>
+    <swimlane Id="9c96642d-5cf9-42f0-8354-3cd3a55c0114" blue="204"
+      green="255" height="488"
+      label="Analista de Riesgos Admisión Individuos" labelBlue="255"
+      labelGreen="238" labelRed="221"
+      name="Analista de Riesgos Admisión Individuos" red="255" uid="W8" width="1497">
+      <documentation/>
+    </swimlane>
+    <swimlane Id="44b1d713-f484-49b2-a2fd-dafa4eb0585e" blue="204"
+      green="255" height="236" label="Oficial Banca Individuos"
+      labelBlue="255" labelGreen="238" labelRed="221"
+      name="Oficial Banca Individuos" red="255" uid="W15" width="1497">
+      <documentation/>
+    </swimlane>
+  </pool>
+  <pool Id="6745ac8a-348b-4c3e-9e99-d36e8b36d3ee" blue="128"
+    containerType="BPMN_SUBPROCESS" external="true"
+    externalizeConditions="false" green="128" isCollapsed="false"
+    isCompensating="false" isTestAfter="false" label="Pool"
+    labelBlue="255" labelGreen="204" labelRed="153" logicalServer=""
+    loopMaximum="0" loopMaximumField="" name="1"
+    orientation="horizontal" red="128" retryCount="0" stepLock="false"
+    uid="P2" useCorrelation="false">
+    <documentation/>
+    <businessKPIs/>
+    <fontData boldFont="false" fontFamily="" italicFont="false"/>
+    <poolReference Id="8181c498-0e0f-4c68-a85e-2bc61a4b37cb"
+      label="BBVA - Emitir Dictamen de Riesgo" logicalServer="Default"
+      poolName="6" stepLock="false" uid="S3" useCorrelation="false"
+      x="58" y="41">
+      <documentation/>
+      <businessKPIs/>
+      <fontData boldFont="false" fontFamily="" italicFont="false"/>
+    </poolReference>
+    <timeout calendarAlias="" calendarTime="0:0:0"
+      dynamicCalendarStaticAlias="" dynamicCalendarStaticDays=""
+      dynamicCalendarStaticHours="" dynamicCalendarStaticMinutes=""
+      dynamicFieldName="" isCalendarTimeout="false"
+      isStaticTimeout="true" isXPathTimeout="false"
+      pipelineCalendarAlias="" pipelineCalendarDays=""
+      pipelineCalendarHours="" pipelineCalendarMinutes=""
+      timeoutStyle="RELATIVE" timeoutType="stepTimeout" timeoutValue="0" xpathTimeoutValue=""/>
+    <wmExpression/>
+  </pool>
+  <documentation/>
+  <qualityOfService expressPipeline="true" minLogLevel="5"
+    optimizeLocally="true" volatileTracking="false" volatileTransition="true"/>
+  <edaIntrinsics processEvent="false" stepEvent="false"/>
+  <easeOfOperations enableProcessForTrackingInTarget="false"
+    enableProcessInTarget="false" stepsEnabledForResubmitInTarget=""/>
+</businessProcessDiagram>
